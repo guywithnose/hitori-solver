@@ -9,5 +9,10 @@ $(BUILD_DIR)/run: src/*.go pkg/linux_amd64/hitori.a
 run: $(BUILD_DIR)/run
 	$(BUILD_DIR)/run puzzles/8.hit
 
+test: testHitori
+
+testHitori:
+	cd $(CURDIR)/src/hitori && go test
+
 pkg/linux_amd64/hitori.a: src/hitori/*.go
 	go install hitori
